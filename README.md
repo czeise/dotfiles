@@ -62,7 +62,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 TODO: Oh My Zsh and all of the themes and plugins are probably best managed using [Antigen](https://antigen.sharats.me/), which was not on my radar when I initially set all of this up.
 
-#### Powerlevel10k Theme
+### Powerlevel10k Theme
 
 Install the [Powerlevel10k theme](https://github.com/romkatv/powerlevel10k#getting-started) for Oh My Zsh.
 
@@ -74,9 +74,7 @@ Then, install the theme.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-#### Plugins
-
-##### zsh-notify
+### zsh-notify Oh My Zsh Plugin
 
 This is a useful utility to help notify me of terminal commands completing. I've got it configured to notify me of long running commands and failed commands. I've only used it on macOS. Checkout [the installation instructions](https://github.com/marzocchi/zsh-notify) to see how to configure and use this in a different OS.
 
@@ -92,7 +90,7 @@ Install zsh-notify.
 git clone https://github.com/marzocchi/zsh-notify.git ~/.oh-my-zsh/custom/plugins/zsh-notify
 ```
 
-##### zsh-nvm
+### zsh-nvm Oh My Zsh Plugin
 
 [This plugin](https://github.com/lukechilds/zsh-nvm) sets up auto switching to the appropriate Node version when a `.nvmrc` file is present.
 
@@ -100,7 +98,7 @@ git clone https://github.com/marzocchi/zsh-notify.git ~/.oh-my-zsh/custom/plugin
 git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 ```
 
-##### zsh-users
+### zsh-users Oh My Zsh Plugins
 
 [zsh-users](https://github.com/zsh-users) host a number of popular custom plugins for Oh My Zsh as well as Antigen. I initially installed all of these plugins with `brew`, but it's likely a good idea to set them up with Antigen when I have some time to clean this up.
 
