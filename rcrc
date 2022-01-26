@@ -1,2 +1,2 @@
-EXCLUDES="README.md install.sh"
-TAGS="zsh ruby"
+EXCLUDES="README.md install.sh crx-dotfiles"
+TAGS="zsh git ruby"

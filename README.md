@@ -4,19 +4,27 @@ This repo contains my dotfiles for configuration of my local development environ
 
 At some point, I'd like to improve the automation of my setup. Here are some ideas (some may belong elsewhere, but all configuration stuff is going here for now):
 
-- Add `.gitconfig`
-  - Personal config
-    - `mkrc -v -t git ~/.gitconfig`
-  - Work config
-    - `mkrc -v -t git -d crx-dotfiles ~/.gitconfig`
-  - Note: [I believe](https://thoughtbot.github.io/rcm/rcm.7.html#MULTIPLE_DOTFILE_DIRECTORIES), using directories like this, if I wanted to override my default `.gitconfig` when setting up my work laptop, I'd use the following flags: `-d . -d crx-dotfiles`. Try out with `lsrc` first, obviously...
 - [Automate software installation (and some config?) with Ansible](https://frontendmasters.com/courses/developer-productivity/the-problem-statement/)
 - Use [Antigen](https://antigen.sharats.me/) for Oh My Zsh configuration
 - Pay attention to new dotfiles showing up in my home directory and add them to this repo
 
+## Homebrew
+
+[Homebrew](https://brew.sh/) is needed to install `rcm`.
+
+``` shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ## rcm
 
 I'm using [rcm](https://github.com/thoughtbot/rcm) to manage my dotfiles. I'm adding the basics of how I plan to use it here, but refer to [its documentation](https://thoughtbot.github.io/rcm/rcm.7.html) as needed. In general, with `rcm` I'll keep my dotfiles in `~/.dotfiles` (this repo), and use its tools for symlinking my home directory's config files to the `~/.dotfiles` directory.
+
+Install with:
+
+``` shell
+brew install rcm
+```
 
 ### Adding new dotfiles
 
@@ -32,7 +40,7 @@ This would symlink `.gitconfig` to `~/.dotfiles/crx-dotfiles/tag-git/gitconfig`.
 
 ### Adding my dotfiles to a new computer
 
-This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I'll probably want to add directory flags to the command (`-d crx-dotfiles -d .` I think...).
+This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I think I'll run it a second time with `-d crx-dotfiles` to overwrite the existing `.gitconfig`. ...I think. Test that out.
 
 ## Software and Packages to install
 
@@ -43,14 +51,6 @@ In the future, maybe handle some or all of this with [Ansible](https://www.ansib
 This is the default macOS shell.
 
 TODO: Add instructions for installing this in Linux.
-
-### Homebrew
-
-Install Homebrew.
-
-``` shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
 
 ### Oh My Zsh
 
@@ -87,7 +87,7 @@ brew install terminal-notifier
 Install zsh-notify.
 
 ``` shell
-git clone https://github.com/marzocchi/zsh-notify.git ~/.oh-my-zsh/custom/plugins/zsh-notify
+git clone https://github.com/marzocchi/zsh-notify.git ~/.oh-my-zsh/custom/plugins/notify
 ```
 
 ### zsh-nvm Oh My Zsh Plugin
