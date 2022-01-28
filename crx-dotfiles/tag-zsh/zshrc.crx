@@ -1,0 +1,32 @@
+# CRx .zshrc
+
+# PSQL Aliases
+alias pg-status='sudo service postgresql status'
+alias pg-start='sudo service postgresql start'
+alias pg-stop='sudo service postgresql stop'
+alias pg-run='sudo -u postgres psql'
+
+# Redis Aliases
+alias redis-start='sudo service redis-server start'
+alias redis-stop='sudo service redis-server stop'
+
+# RX-Savings
+alias rxp="cd ~/connectiverx/rx-savings/rx-savings && echo \"Starting RX-Savings Portal (RX_SAVINGS_SERVER_MODE=portal)\" && RX_SAVINGS_SERVER_MODE=portal rails s -p 3004 -P tmp/pids/server-portal.pid"
+alias rxa="cd ~/connectiverx/rx-savings/rx-savings && echo \"Starting RX-Savings API\" && rails s -P tmp/pids/server-api.pid"
+alias rxps="cd ~/connectiverx/rx-savings/rx-savings && echo \"Starting RX-Savings Portal in HTTPS mode (RX_SAVINGS_SERVER_MODE=portal)\" && RX_SAVINGS_SERVER_MODE=portal rails s -p 3004 -P tmp/pids/server-portal.pid -b 'ssl://localhost:3003?key=server.key&cert=server.crt'"
+alias rxpa="cd ~/connectiverx/rx-savings/rx-savings && echo \"Starting RX-Savings Public API (RX_SAVINGS_SERVER_MODE=public_api)\" && RX_SAVINGS_SERVER_MODE=public_api rails s -p 3005 -P tmp/pids/server-public_api.pid"
+alias rxw="cd ~/connectiverx/rx-savings/rx-savings && echo \"Starting RX-Savings Worker (RX_SAVINGS_SERVER_MODE=worker) - Requires local redis-server running\" && RX_SAVINGS_SERVER_MODE=worker sidekiq"
+alias rxpp="cd ~/connectiverx/rx-savings/rx-savings && echo \"Starting RX-Savings Pharmacist Portal (RX_SAVINGS_SERVER_MODE=pharmacist_portal)\" && RX_SAVINGS_SERVER_MODE=pharmacist_portal rails s -p 3006 -P tmp/pids/server-pharmacist-portal.pid"
+
+# Rex
+export REX_PATH=/opt/rex
+
+rx_labs_aws() {
+ export AWS_ACCESS_KEY_ID=AKIAXPE55IRRKMKP4GJ4
+ export AWS_SECRET_ACCESS_KEY=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
+ export AWS_DEFAULT_REGION=us-east-1
+}
+# End Rex
+
+# keychain setup, see this article for details: https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/
+eval `keychain --eval --agents ssh id_rsa`

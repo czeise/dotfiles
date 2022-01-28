@@ -10,7 +10,7 @@ At some point, I'd like to improve the automation of my setup. Here are some ide
 
 ## Homebrew
 
-[Homebrew](https://brew.sh/) is needed to install `rcm`.
+[Homebrew](https://brew.sh/) is needed to install `rcm` in macOS. 
 
 ``` shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -20,27 +20,34 @@ At some point, I'd like to improve the automation of my setup. Here are some ide
 
 I'm using [rcm](https://github.com/thoughtbot/rcm) to manage my dotfiles. I'm adding the basics of how I plan to use it here, but refer to [its documentation](https://thoughtbot.github.io/rcm/rcm.7.html) as needed. In general, with `rcm` I'll keep my dotfiles in `~/.dotfiles` (this repo), and use its tools for symlinking my home directory's config files to the `~/.dotfiles` directory.
 
-Install with:
+macOS install:
 
 ``` shell
 brew install rcm
+```
+
+Ubuntu install:
+
+``` shell
+sudo apt update
+sudo apt install rcm
 ```
 
 ### Adding new dotfiles
 
 Add new dotfiles to this repo using `mkrc`. Optionally, add tags using `-t`, or if the dotfile(s) being added are specific to a certain installation, put them in a separate directory using `-d`. Use the `-v` flag to get more verbose output.
 
-For example, to add my work specific `.gitconfig` file, I may do something like this.
+For example, to add my work specific `.gitconfig` file, I may do something like this from my home directory.
 
 ``` shell
-mkrc -v -t git -d crx-dotfiles ~/.gitconfig
+mkrc -v -t git -d .dotfiles/crx-dotfiles .gitconfig
 ```
 
-This would symlink `.gitconfig` to `~/.dotfiles/crx-dotfiles/tag-git/gitconfig`. Then it would be good to push the changes up to this repo.
+This would symlink `.gitconfig` to `~/.dotfiles/crx-dotfiles/tag-git/gitconfig`.
 
 ### Adding my dotfiles to a new computer
 
-This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I think I'll run it a second time with `-d crx-dotfiles` to overwrite the existing `.gitconfig`. ...I think. Test that out.
+This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I think I'll run it a second time with `-d ~/.dotfiles/crx-dotfiles` to overwrite the existing `.gitconfig`. ...I think. Test that out.
 
 ## Software and Packages to install
 
