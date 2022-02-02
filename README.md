@@ -47,7 +47,13 @@ This would symlink `.gitconfig` to `~/.dotfiles/crx-dotfiles/tag-git/gitconfig`.
 
 ### Adding my dotfiles to a new computer
 
-This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I think I'll run it a second time with `-d ~/.dotfiles/crx-dotfiles` to overwrite the existing `.gitconfig`. ...I think. Test that out.
+TODO: `install.sh` using `rcrc` isn't working properly for some reason. For now, do a dry run using `lsrc` before installing dotfiles with `rcup`. Here's the proper `lsrc` command:
+
+``` shell
+lsrc -v -t zsh -t git -t ruby -x README.md -x install.sh -x crx-dotfiles
+```
+
+~~This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I think I'll run it a second time with `-d ~/.dotfiles/crx-dotfiles` to overwrite the existing `.gitconfig`. ...I think. Test that out.~~
 
 ## Software and Packages to install
 

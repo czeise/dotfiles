@@ -27,6 +27,3 @@ rx_labs_aws() {
  export AWS_DEFAULT_REGION=us-east-1
 }
 # End Rex
-
-# keychain setup, see this article for details: https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/
-eval `keychain --eval --agents ssh id_rsa`

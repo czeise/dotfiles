@@ -1,3 +1,6 @@
+# Set up Keychain on CRx Ubuntu instances
+[[ -f ~/.keychain.crx ]] && source ~/.keychain.crx
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -126,6 +129,9 @@ alias rss="rails server -b 'ssl://localhost:3000?key=server.key&cert=server.crt'
 # CRx config (not used with default .rcrc configuration)
 [[ -f ~/.zshrc.crx ]] && source ~/.zshrc.crx
 
+
+# TODO: Setup Antigen to get these and others installed since it should work both in macOS
+# and Ubuntu
 # zsh-users tools MUST BE AT THE END OF THE FILE
 
 # zsh-users/zsh-autosuggestions: Also must be at end of file...
@@ -142,8 +148,10 @@ source /usr/local/share/zsh-history-substring-search/zsh-history-substring-searc
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# RVM is installed in a different location that's already on the path on Ubuntu.
+# RVM install differs between macOS and Ubuntu.
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
   export PATH="$PATH:$HOME/.rvm/bin"
+else
+  source /etc/profile.d/rvm.sh
 fi
