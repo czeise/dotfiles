@@ -50,7 +50,7 @@ This would symlink `.gitconfig` to `~/.dotfiles/crx-dotfiles/tag-git/gitconfig`.
 TODO: `install.sh` using `rcrc` isn't working properly for some reason. For now, do a dry run using `lsrc` before installing dotfiles with `rcup`. Here's the proper `lsrc` command:
 
 ``` shell
-lsrc -v -t zsh -t git -t ruby -x README.md -x install.sh -x crx-dotfiles
+lsrc -v -t zsh -t git -t ruby -t asdf -x README.md -x install.sh
 ```
 
 ~~This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I think I'll run it a second time with `-d ~/.dotfiles/crx-dotfiles` to overwrite the existing `.gitconfig`. ...I think. Test that out.~~
@@ -103,14 +103,6 @@ Install zsh-notify.
 git clone https://github.com/marzocchi/zsh-notify.git ~/.oh-my-zsh/custom/plugins/notify
 ```
 
-### zsh-nvm Oh My Zsh Plugin
-
-[This plugin](https://github.com/lukechilds/zsh-nvm) sets up auto switching to the appropriate Node version when a `.nvmrc` file is present.
-
-``` shell
-git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-```
-
 ### zsh-users Oh My Zsh Plugins
 
 [zsh-users](https://github.com/zsh-users) host a number of popular custom plugins for Oh My Zsh as well as Antigen. I initially installed all of these plugins with `brew`, but it's likely a good idea to set them up with Antigen when I have some time to clean this up.
@@ -128,3 +120,7 @@ brew install zsh-autosuggestions
 brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
 ```
+
+### asdf
+
+Follow the instructions in their [Getting Started documentation](https://asdf-vm.com/guide/getting-started.html).
