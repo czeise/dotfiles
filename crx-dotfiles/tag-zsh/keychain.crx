@@ -1,2 +1,0 @@
-# keychain setup, see this article for details: https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/
-eval `keychain --eval --agents ssh id_rsa`
