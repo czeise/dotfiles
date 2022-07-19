@@ -10,7 +10,11 @@ At some point, I'd like to improve the automation of my setup. Here are some ide
 
 ## Homebrew
 
-[Homebrew](https://brew.sh/) is needed to install `rcm` in macOS. 
+[Homebrew](https://brew.sh/) is needed to install `rcm` in macOS.
+
+TODO:
+
+- [ ] Update README to use [Brewfile for bundled install of Homebrew packages](https://github.com/Homebrew/homebrew-bundle) (`brew bundle install`)
 
 ``` shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
