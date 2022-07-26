@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found docker mvn bundler gem rails yarn notify asdf)
+plugins=(git command-not-found docker mvn bundler gem rails yarn notify)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,9 +120,8 @@ zstyle ':notify:*' success-sound "default"
 # - rss requires a key and certificate to be setup
 alias rss="rails server -b 'ssl://localhost:3000?key=server.key&cert=server.crt'"
 
-# CRx config (not used with default .rcrc configuration)
-[[ -f ~/.zshrc.crx ]] && source ~/.zshrc.crx
-
+# ASDF installed via Homebrew
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # TODO: Setup Antigen to get these and others installed since it should work both in macOS
 # and Ubuntu
@@ -131,13 +130,13 @@ alias rss="rails server -b 'ssl://localhost:3000?key=server.key&cert=server.crt'
 # zsh-users/zsh-autosuggestions: Also must be at end of file...
 # See note about iterm2 colors here:
 #   https://github.com/zsh-users/zsh-autosuggestions#suggestion-highlight-style
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^[[Z' autosuggest-accept
 
 # zsh-users/zsh-syntax-highlighting: MUST BE AT END OF FILE
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh-users/zsh-substring-search
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
