@@ -1,8 +1,13 @@
 [user]
-	email = craig.zeise@gmail.com
+	email = craig.zeise@testdouble.com
 	name = Craig Zeise
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
+	hooksPath = ~/.config/git/hooks
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[pull]
+	ff = only

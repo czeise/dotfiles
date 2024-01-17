@@ -83,6 +83,10 @@ plugins=(git command-not-found docker mvn bundler gem rails yarn notify)
 
 source $ZSH/oh-my-zsh.sh
 
+# ASDF Java
+# TODO: Move to tag-asdf
+. ~/.asdf/plugins/java/set-java-home.zsh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -120,8 +124,15 @@ zstyle ':notify:*' success-sound "default"
 # - rss requires a key and certificate to be setup
 alias rss="rails server -b 'ssl://localhost:3000?key=server.key&cert=server.crt'"
 
+# Set DEPENDENCIES_NEXT environment variable for use with bootboot's "next"
+# gemset
+alias dn="DEPENDENCIES_NEXT=1"
+
 # ASDF installed via Homebrew
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# ls to exa alias
+alias ls="exa"
 
 # TODO: Setup Antigen to get these and others installed since it should work both in macOS
 # and Ubuntu
@@ -130,13 +141,13 @@ alias rss="rails server -b 'ssl://localhost:3000?key=server.key&cert=server.crt'
 # zsh-users/zsh-autosuggestions: Also must be at end of file...
 # See note about iterm2 colors here:
 #   https://github.com/zsh-users/zsh-autosuggestions#suggestion-highlight-style
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^[[Z' autosuggest-accept
 
 # zsh-users/zsh-syntax-highlighting: MUST BE AT END OF FILE
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh-users/zsh-substring-search
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
