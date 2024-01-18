@@ -145,6 +145,9 @@ source $(brew --prefix asdf)/libexec/asdf.sh
 # ls to exa alias
 alias ls="exa"
 
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 # TODO: Setup Antigen to get these and others installed since it should work both in macOS
 # and Ubuntu
 # zsh-users tools MUST BE AT THE END OF THE FILE
