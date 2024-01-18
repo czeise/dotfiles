@@ -10,7 +10,7 @@ I'm using [rcm](https://github.com/thoughtbot/rcm) to manage my dotfiles. I'm ad
 
 Clone onto your laptop:
 
-    git clone git@github.com:thoughtbot/dotfiles.git ~/.dotfiles
+    git clone git@github.com:czeise/dotfiles.git ~/.dotfiles
 
 (Forked. [How to keep your fork
 updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
@@ -25,7 +25,7 @@ Do a dry run using `lsrc` before installing dotfiles:
 
 Install the dotfiles:
 
-    env RCRC=$HOME/dotfiles/rcrc rcup
+    env RCRC=$HOME/.dotfiles/rcrc rcup
 
 After the initial installation, you can run `rcup` without the one-time variable
 `RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future

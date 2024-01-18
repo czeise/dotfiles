@@ -129,7 +129,7 @@ alias rss="rails server -b 'ssl://localhost:3000?key=server.key&cert=server.crt'
 alias dn="DEPENDENCIES_NEXT=1"
 
 # Homebrew
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 
 # ASDF installed via Homebrew
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
