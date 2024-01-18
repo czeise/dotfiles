@@ -132,7 +132,7 @@ alias dn="DEPENDENCIES_NEXT=1"
 eval "$($(brew --prefix)/bin/brew shellenv)"
 
 # ASDF installed via Homebrew
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+source $(brew --prefix asdf)/libexec/asdf.sh
 
 # ls to exa alias
 alias ls="exa"
