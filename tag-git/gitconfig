@@ -1,6 +1,3 @@
-[user]
-	email = craig.zeise@testdouble.com
-	name = Craig Zeise
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
@@ -11,3 +8,5 @@
 	autoSetupRemote = true
 [pull]
 	ff = only
+[include]
+  path = ~/.gitconfig.local
