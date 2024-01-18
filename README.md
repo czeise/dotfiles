@@ -1,37 +1,47 @@
 # dotfiles
 
-This repo contains my dotfiles for configuration of my local development environment. I've started small with some of the crucial things that I'd rather not think about too much, such as my shell environment. I'm also including notes on installing some of the software/packages I use, particularly things that are configured by these dotfiles.
-
-At some point, I'd like to improve the automation of my setup. Here are some ideas (some may belong elsewhere, but all configuration stuff is going here for now):
-
-- [Automate software installation (and some config?) with Ansible](https://frontendmasters.com/courses/developer-productivity/the-problem-statement/)
-- Use [Antigen](https://antigen.sharats.me/) for Oh My Zsh configuration
-- Pay attention to new dotfiles showing up in my home directory and add them to this repo
-
-## Homebrew
-
-[Homebrew](https://brew.sh/) is needed to install `rcm` in macOS.
-
-``` shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+This repo contains my dotfiles for configuration of my local development environment. I've started small with some of the crucial things that I'd rather not think about too much.
 
 ## rcm
 
 I'm using [rcm](https://github.com/thoughtbot/rcm) to manage my dotfiles. I'm adding the basics of how I plan to use it here, but refer to [its documentation](https://thoughtbot.github.io/rcm/rcm.7.html) as needed. In general, with `rcm` I'll keep my dotfiles in `~/.dotfiles` (this repo), and use its tools for symlinking my home directory's config files to the `~/.dotfiles` directory.
 
-macOS install:
+## Install
 
-``` shell
-brew install rcm
-```
+Clone onto your laptop:
 
-Ubuntu install:
+    git clone git@github.com:thoughtbot/dotfiles.git ~/.dotfiles
 
-``` shell
-sudo apt update
-sudo apt install rcm
-```
+(Forked. [How to keep your fork
+updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
+
+Install [rcm](https://github.com/thoughtbot/rcm):
+
+    brew install rcm
+
+Do a dry run using `lsrc` before installing dotfiles:
+
+    env RCRC=$HOME/.dotfiles/rcrc lsrc
+
+Install the dotfiles:
+
+    env RCRC=$HOME/dotfiles/rcrc rcup
+
+After the initial installation, you can run `rcup` without the one-time variable
+`RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
+runs of `rcup`). [See
+example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
+
+This command will create symlinks for config files in your home directory.
+Setting the `RCRC` environment variable tells `rcup` to use standard
+configuration options:
+
+- Exclude the `README.md`, `README-ES.md` and `LICENSE` files, which are part of
+  the `dotfiles` repository but do not need to be symlinked in.
+- Give precedence to personal overrides which by default are placed in
+  `~/dotfiles-local`
+- Please configure the `rcrc` file if you'd like to make personal
+  overrides in a different directory
 
 ### Adding new dotfiles
 
@@ -44,14 +54,6 @@ mkrc -v -t git -d .dotfiles/crx-dotfiles .gitconfig
 ```
 
 This would symlink `.gitconfig` to `~/.dotfiles/crx-dotfiles/tag-git/gitconfig`.
-
-### Adding my dotfiles to a new computer
-
-TODO: `install.sh` using `rcrc` isn't working properly for some reason. For now, do a dry run using `lsrc` before installing dotfiles with `rcup`. Here's the proper `lsrc` command:
-
-``` shell
-lsrc -v -t zsh -t git -t ruby -t asdf -x README.md -x install.sh
-```
 
 ~~This should be as simple as cloning this repo to `~/.dotfiles` and then running `install.sh`. This uses my `.rcrc` configuration file to determine which tags (and directories to install). For my work laptop, I think I'll run it a second time with `-d ~/.dotfiles/crx-dotfiles` to overwrite the existing `.gitconfig`. ...I think. Test that out.~~
 
