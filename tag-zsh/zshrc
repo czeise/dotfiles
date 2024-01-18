@@ -129,7 +129,15 @@ alias rss="rails server -b 'ssl://localhost:3000?key=server.key&cert=server.crt'
 alias dn="DEPENDENCIES_NEXT=1"
 
 # Homebrew
-eval "$($(brew --prefix)/bin/brew shellenv)"
+# Determine Homebrew prefix
+arch="$(uname -m)"
+if [ "$arch" = "arm64" ]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # ASDF installed via Homebrew
 source $(brew --prefix asdf)/libexec/asdf.sh
