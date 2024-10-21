@@ -5,8 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.bin:$PATH"
 
 # Fix for "[oh-my-zsh] Insecure completion-dependent directories detected"
 # https://stackoverflow.com/questions/61433167/zsh-detects-insecure-completion-dependent-directories
@@ -142,8 +141,10 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 # ASDF installed via Homebrew
 source $(brew --prefix asdf)/libexec/asdf.sh
 
-# ls to exa alias
-alias ls="exa"
+# ls to eza alias
+alias ls="eza"
+
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
