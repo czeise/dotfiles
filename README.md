@@ -4,7 +4,7 @@ My personal dotfiles, managed with [rcm](https://github.com/thoughtbot/rcm). Fil
 
 ## Install
 
-These dotfiles assume software (Homebrew, git, zsh, asdf, Starship, etc.) is already installed by my [czeise/laptop](https://github.com/czeise/laptop) bootstrap. Run that first on a new machine.
+These dotfiles assume software (Homebrew, git, zsh, mise, Starship, etc.) is already installed by my [czeise/laptop](https://github.com/czeise/laptop) bootstrap. Run that first on a new machine.
 
 Then:
 
@@ -43,6 +43,5 @@ These are installed by the laptop repo or manually — they're not managed by `r
 
 - **Oh My Zsh** — `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 - **Starship** prompt — `brew install starship`
-- **asdf** — see [Getting Started](https://asdf-vm.com/guide/getting-started.html)
 - **zsh-users plugins** — `brew install zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting`
 - **terminal-notifier** + **zsh-notify** (macOS) — currently installed by `install.sh`. **TODO:** move these into the [czeise/laptop](https://github.com/czeise/laptop) bootstrap so this repo only handles dotfile symlinks.
