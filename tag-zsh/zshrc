@@ -67,10 +67,6 @@ plugins=(git command-not-found docker mvn bundler gem rails yarn notify)
 
 source $ZSH/oh-my-zsh.sh
 
-# ASDF Java
-# TODO: Move to tag-asdf or separate asdf config file?
-. ~/.asdf/plugins/java/set-java-home.zsh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -101,13 +97,11 @@ fi
 
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
-# ASDF installed via Homebrew
-source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
+# Mise
+eval "$(mise activate zsh)"
 
 # ls to eza alias
 alias ls="eza"
-
-export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
