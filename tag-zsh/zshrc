@@ -1,25 +1,9 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Fix for "[oh-my-zsh] Insecure completion-dependent directories detected"
 # https://stackoverflow.com/questions/61433167/zsh-detects-insecure-completion-dependent-directories
 ZSH_DISABLE_COMPFIX=true
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -84,7 +68,7 @@ plugins=(git command-not-found docker mvn bundler gem rails yarn notify)
 source $ZSH/oh-my-zsh.sh
 
 # ASDF Java
-# TODO: Move to tag-asdf
+# TODO: Move to tag-asdf or separate asdf config file?
 . ~/.asdf/plugins/java/set-java-home.zsh
 
 # User configuration
@@ -93,28 +77,6 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zsh-notify https://github.com/marzocchi/zsh-notify
 zstyle ':notify:*' error-sound "Glass"
@@ -140,28 +102,36 @@ fi
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # ASDF installed via Homebrew
-source $(brew --prefix asdf)/libexec/asdf.sh
+source "$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
 
-# ls to exa alias
-alias ls="exa"
+# ls to eza alias
+alias ls="eza"
+
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-# TODO: Setup Antigen to get these and others installed since it should work both in macOS
-# and Ubuntu
-# zsh-users tools MUST BE AT THE END OF THE FILE
+export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
 
-# zsh-users/zsh-autosuggestions: Also must be at end of file...
+#
+# Starship prompt
+#
+eval "$(starship init zsh)"
+
+#
+# zsh-users tools MUST BE AT THE END OF THE FILE
+#
+
 # See note about iterm2 colors here:
 #   https://github.com/zsh-users/zsh-autosuggestions#suggestion-highlight-style
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 bindkey '^[[Z' autosuggest-accept
 
-# zsh-users/zsh-syntax-highlighting: MUST BE AT END OF FILE
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh-users/zsh-syntax-highlighting
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # zsh-users/zsh-substring-search
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
